@@ -9,6 +9,9 @@
 
  :dev-http {9090 "public/"}
 
+ :nrepl {:port 9001
+         :middleware []}
+
  :builds
  {:app {:output-dir "public/compiledjs/"
         :asset-path "compiledjs"
