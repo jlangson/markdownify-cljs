@@ -5,7 +5,9 @@
   "src/test"]
 
  :dependencies
- []
+ ;version 1.1.1 doesn't autoupdate depdenceies
+ ; 0.9.1 downloads react
+ [[reagent "1.1.1"]]
 
  :dev-http {9090 "public/"}
 
