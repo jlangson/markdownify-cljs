@@ -16,28 +16,28 @@
   (.makeHtml showdown-converter md))
 
 
-
-
 ;reagent component
 (defn app []
   [:div
    [:h1 "Hello!"]
-   [:textarea
-    ;hashmap defines html attributes of <textarea>
-   { :on-change #(reset! markdown (-> % .-target .-value))
-    ;displays atom on reload in textbox
-    :value @markdown}]
-  [:div {:dangerouslySetInnerHTML {:__html (md->html @markdown)}}] ;renders md as html
-   [:div (md->html @markdown)]                               ;shows raw conversion of md->html
-   ])
+   [:div
+    {:style {:display :flex}}
+    [:div
+     {:style {:flex "1"}}                                   ;1 is the ratio. 1:1 is equal. 2:1 gives this more size
+     [:h2 "Markdown"]
+     [:textarea                                             ;hashmap on html element defines attributes of <textarea>
+      {:on-change #(reset! markdown (-> % .-target .-value))
+       :value     @markdown
+       :style { :height "500px"
+               :width "100%"}}]]                  ;displays atom on reload in textbox
 
 
-
-
-
-
-
-
+    [:div
+     {:style {:flex "1"
+              :padding-left "3em"}}
+     [:h2 "HTML Preview"]
+     [:div { :style {:height "500px"}
+            :dangerouslySetInnerHTML {:__html (md->html @markdown)}}]]]]) ;renders md as html
 
 
 
