@@ -49,7 +49,9 @@
        :style     {:height "500px"
                    :width  "100%"}}]
      [:button
-      {:on-click #(copy-to-clipboard @markdown)}
+      {:on-click #(copy-to-clipboard @markdown)
+       :style {:background-color :violet
+               :padding "1em"}}
       "Copy Markdown"]]
 
     [:div
@@ -59,7 +61,8 @@
      [:div {:style                   {:height "500px"}
             :dangerouslySetInnerHTML {:__html (md->html @markdown)}}]
      [:button
-      {:on-click #(copy-to-clipboard (md->html @markdown))}
+      {:on-click #(copy-to-clipboard (md->html @markdown))
+       :style {:padding "3em"}}
       "Copy HTML!!!"]]]])
 
 
